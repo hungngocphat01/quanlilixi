@@ -4,10 +4,12 @@
 ## I. Hướng dẫn cài đặt
 * Đầu tiên tải source code tại ở [đây]() *(link cho vui, chưa hoàn tất nên chưa up code)*.
 ### 1. Trên máy tính
-* Ném vào Visual Studio, Code::Blocks hoặc compile trên command line bằng gcc, ..., nói chung là bất cứ thứ gì có thể compile được. Mà chắc test cho vui vì chả ai quản lí tiền lì xì bằng máy tính. Không lẽ đi chơi Tết mà phải vác cái laptop đi để tính tiền :) 
+* Ném vào Visual Studio, Code::Blocks hoặc compile trên command line bằng gcc, ..., nói chung là bất cứ caí quần què gì có thể compile được C++. Mà chắc test cho vui vì chả ai quản lí tiền lì xì bằng máy tính. Không lẽ đi chơi Tết mà phải vác cái laptop đi để tính tiền :) 
 ### 2. Trên Android
 * Tải Cxxdroid về từ Play Store. Mở file source code lên bằng cách nhấn vào biểu tượng thư mục ở trên góc phải, sau đó điều hướng đến và mở file source code vừa tải về.
 * Nhấn vào nút có biểu tượng **Play** ở góc dưới bên phải để chạy chương trình. 
+* Bạn chỉ cần mở file ở lần chạy đầu tiên vì những lần chạy sau Cxxdroid sẽ tự mở file gần nhất lên cho các bạn. Các bạn chỉ việc nhấn nút **Play** để chạy code.
+* Không khuyến khích sử dụng Dcoder vì tốc độ thực thi chậm.
 ### 3. Trên iOS
 * Nah, mình không dùng iOS. Các bạn tự nghiên cứu đi <(")
 ## II. Hướng dẫn sử dụng
