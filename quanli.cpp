@@ -118,6 +118,18 @@ void xuatNguoiRaFile(nguoi n) {
 	fout.close();
 }
 
+void xuatDSRaFile(vector<nguoi> ds) {
+	ofstream fout;
+	fout.open("data.txt");
+	for (nguoi n : ds){
+		fout << n.ten << endl;
+		fout << n.sotien << endl;
+		fout << n.danhmuc << endl;
+		fout << n.mung << endl;
+	}
+	fout.close();
+}
+
 void print(string stt, string ten, string sotien, string danhmuc, string mung, char fill) {
 	cout << setfill(fill) 
 		<< setw(3) << stt
@@ -201,6 +213,18 @@ bool chinhSua(vector<nguoi>& list, nguoi n, nguoi m) {
 	return false;
 }
 
+bool chinhSua(vector<nguoi>& list, nguoi n, nguoi m) {
+	int index = 0;
+	for (nguoi i : list) {
+		if (i.ten == n.ten && i.danhmuc == n.danhmuc && i.mung == n.mung && i.sotien == n.sotien) {
+			list.erase(list.begin() + index);
+			return true;
+		}
+		index++;
+	}
+	return false;
+}
+
 // Tiêu đề đầu chương trình
 void title() {
 	system(clear);
@@ -258,6 +282,7 @@ int main() {
 		cout << "1. In danh sach thong ke" << endl;
 		cout << "2. Nhap thong tin moi" << endl;
 		cout << "3. Chinh sua danh sach" << endl;
+		cout << "4. Xoa muc khoi danh sach" << endl;
 		cout << "0. Thoat khoi chuong trinh" << endl;
 		cout << "=> ";
 
@@ -393,7 +418,27 @@ int main() {
 			if (chinhSua(list, n, m) == false) {
 				cout << "Nguoi da nhap khong ton tai trong danh sach" << endl;
 			}
-			xuatNguoiRaFile(m);
+			xuatDSRaFile(list);
+		}
+		else if (choice == 4){
+			nguoi n;
+			cout << "Hay nhap cac thong tin cua ban ghi can xoa: " << endl;
+			cout << "Nhap ten: ";
+			getline(cin, n.ten);
+			chuanHoa(n.ten);
+
+			cout << "Nhap so tien: ";
+			cin >> n.sotien;
+			cin.ignore();
+
+			cout << "Nhap danh muc: ";
+			getline(cin, n.danhmuc);
+			chuanHoa(n.danhmuc);
+
+			cout << "Nhap mung: ";
+			cin >> n.mung;
+			cin.ignore();
+
 		}
 		else {
 			cout << "Lua chon khong hop le!" << endl;
