@@ -213,7 +213,7 @@ bool chinhSua(vector<nguoi>& list, nguoi n, nguoi m) {
 	return false;
 }
 
-bool chinhSua(vector<nguoi>& list, nguoi n, nguoi m) {
+bool xoaKhoiDS(vector<nguoi>& list, nguoi n) {
 	int index = 0;
 	for (nguoi i : list) {
 		if (i.ten == n.ten && i.danhmuc == n.danhmuc && i.mung == n.mung && i.sotien == n.sotien) {
@@ -439,6 +439,9 @@ int main() {
 			cin >> n.mung;
 			cin.ignore();
 
+			if (xoaKhoiDS(list, n) == false){
+				cout << "Nguoi da nhap khong ton tai trong danh sach" << endl;
+			}
 		}
 		else {
 			cout << "Lua chon khong hop le!" << endl;
