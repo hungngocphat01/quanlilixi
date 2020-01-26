@@ -106,16 +106,15 @@ vector<nguoi> docFile(ifstream& fin) {
 	return list;
 }
 
-void xuatFile(vector<nguoi> list) {
+void xuatNguoiRaFile(nguoi n) {
 	ofstream fout;
-	fout.open("data.txt");
-	for (nguoi i : list) {
-		if (LaChuoiRong(i.ten)) continue;
-		fout << i.ten << endl;
-		fout << i.sotien << endl;
-		fout << i.danhmuc << endl;
-		fout << i.mung << endl;
-	}
+	fout.open("data.txt", ios::app);
+
+	fout << n.ten << endl;
+	fout << n.sotien << endl;
+	fout << n.danhmuc << endl;
+	fout << n.mung << endl;
+
 	fout.close();
 }
 
@@ -207,7 +206,7 @@ void title() {
 	system(clear);
 	cout << "Chuong trinh quan li tien li xi" << endl;
 	cout << "By Ngoc Phat" << endl;
-	cout << "Version 1.5" << endl;
+	cout << "Version 1.6" << endl;
 	cout << "OS: ";
 	#ifdef __unix__         
 	cout << "Unix" << endl;
@@ -245,7 +244,11 @@ int main() {
 	list = docFile(fin);
 	fin.close();
 
-	
+	nguoi nguoiGanNhat;
+
+	if (list.size() != 0){
+		nguoiGanNhat = list.at(list.size() - 1);
+	}
 
 	int cont = 0;
 
@@ -313,14 +316,28 @@ int main() {
 			string dmuc;
 			int mung;
 
+			cout << "Nhap danh muc la // de lay du lieu danh muc va mung tu ban ghi gan nhat.\n\n";
+
 			cout << "Nhap danh muc: ";
 			getline(cin, dmuc);
 			chuanHoa(dmuc);
-
-			cout << "Nhap mung: ";
-			cin >> mung;
-			cin.ignore();
-
+			
+			if (dmuc == "//"){
+				if (list.size() != 0){
+					dmuc = nguoiGanNhat.danhmuc;
+					mung = nguoiGanNhat.mung;
+				}
+				else{
+					cout << "Loi: Danh sach rong nen khong ton tai 'ban ghi gan nhat'" << endl;
+					goto end;
+				}
+			}
+			else{
+				cout << "Nhap mung: ";
+				cin >> mung;
+				cin.ignore();
+			}
+			
 			cout << "Nhap ten la // de ket thuc" << endl;
 
 			while (true) {
@@ -330,8 +347,10 @@ int main() {
 					list.pop_back();
 					break;
 				}
+				else{
+					xuatNguoiRaFile(list.at(list.size() - 1));
+				}
 			}
-			xuatFile(list);
 		}
 
 		else if (choice == 3) {
@@ -374,11 +393,13 @@ int main() {
 			if (chinhSua(list, n, m) == false) {
 				cout << "Nguoi da nhap khong ton tai trong danh sach" << endl;
 			}
-			xuatFile(list);
+			xuatNguoiRaFile(m);
 		}
 		else {
 			cout << "Lua chon khong hop le!" << endl;
 		}
+
+		end:
 		cout << "=======================================================" << endl;
 		cout << "Tiep tuc? (0/1) => ";
 		cin >> cont;
