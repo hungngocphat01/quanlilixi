@@ -442,6 +442,9 @@ int main() {
 			if (xoaKhoiDS(list, n) == false){
 				cout << "Nguoi da nhap khong ton tai trong danh sach" << endl;
 			}
+			else{
+				xuatDSRaFile(list);
+			}
 		}
 		else {
 			cout << "Lua chon khong hop le!" << endl;
