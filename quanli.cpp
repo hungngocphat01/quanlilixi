@@ -35,8 +35,8 @@ bool LaChuoiRong(string s) {
 	return true;
 }
 
-void chuanHoa(string& s) {
-	// Xóa các kí tự khoảng trắng ở đầu và cuối
+void chuanHoa(string& s){
+	// Xóa các kí tự khoảng trắng ở đầu và cuối dòng
 	const char space = 32;
 	while (s[0] == space) {
 		s.erase(0, 1);
