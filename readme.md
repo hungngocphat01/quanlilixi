@@ -1,6 +1,8 @@
 # Quản lí lì xì
 ## Code khá thô bằng C++
 
+Tự nhiên lục github phát hiện ra cái quần này viết từ hồi sinh viên năm nhất nên public ra cho vui vậy. Thực tế nó chả làm được cái quái gì ra hồn sất 🐧
+
 ## I. Hướng dẫn cài đặt
 * Đầu tiên tải source code tại ở [đây]() *(link cho vui, chưa hoàn tất nên chưa up code)*.
 ### 1. Trên máy tính
